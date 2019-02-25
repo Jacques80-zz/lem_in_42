@@ -6,7 +6,7 @@
 /*   By: fallouch <fallouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 05:30:57 by jdouniol          #+#    #+#             */
-/*   Updated: 2019/02/25 18:13:42 by fallouch         ###   ########.fr       */
+/*   Updated: 2019/02/25 20:16:18 by fallouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,12 @@ void			ft_init_elem(t_all *elem)
 	elem->bfs = 0;
 }
 
+int				gnl_error(char *line)
+{
+	free(line);
+	return (FAIL);
+}
+
 int				ft_read(t_all *elem)
 {
 	int		i;
@@ -56,7 +62,7 @@ int				ft_read(t_all *elem)
 	{
 		line = NULL;
 		if ((i = get_next_line(STDIN_FILENO, &line)) == GNL_ERROR)
-			return (FAIL);
+			return (gnl_error(line));
 		if (i == GNL_END)
 		{
 			free(line);

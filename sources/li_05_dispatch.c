@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   li_05_dispatch.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdouniol <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fallouch <fallouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 05:32:01 by jdouniol          #+#    #+#             */
-/*   Updated: 2019/02/19 19:36:29 by fallouch         ###   ########.fr       */
+/*   Updated: 2019/02/25 20:18:30 by fallouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	remove_ant(t_ant **ant)
 void	move_ant(t_ant **ptr_ant)
 {
 	t_ant		*ant;
+	static int	nb_line = 0;
 
 	ant = *ptr_ant;
 	while (ant)
@@ -53,7 +54,10 @@ void	move_ant(t_ant **ptr_ant)
 		ant->next ? ft_putchar(' ') : ft_putchar('\n');
 		ant = ant->next;
 	}
+	nb_line++;
 	remove_ant(ptr_ant);
+	if (!*ptr_ant)
+		ft_printf("number lines = %d\n", nb_line);
 }
 
 void	ft_dispatch_short(t_all elem, t_path *path)

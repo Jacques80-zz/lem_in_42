@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lem_in.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fallouch <fallouch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jdouniol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 06:16:09 by jdouniol          #+#    #+#             */
-/*   Updated: 2019/02/25 18:33:51 by fallouch         ###   ########.fr       */
+/*   Updated: 2019/02/18 06:16:12 by jdouniol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # define SUCCESS		0
 # define ERROR			1
 # define FAIL			2
+# define DEBUG_MODE		1
 
 # include "libft.h"
 
@@ -92,6 +93,7 @@ typedef struct			s_all
 	int					end_id;
 	t_path				*shortest_path;
 	int					bfs;
+	int					line_pb;
 }						t_all;
 
 typedef struct			s_lst
@@ -166,8 +168,8 @@ int						ft_free_them(size_t n, ...);
 int						ft_error_tube(char ***tab_tube);
 void					ft_error(int nb);
 void					ft_free_path(t_lst *lst);
-void					free_bfs(t_files *tmp);
 int						ft_free_tube(char **tab_tube, int i);
+void					free_bfs(t_files *tmp);
 
 /*
 **	li_09b Search and Init Tools
@@ -178,7 +180,7 @@ t_room					*ft_init_end(t_all *elem);
 void					ft_set_matrice(t_room **tmp, t_room **cur,
 							t_room ***matrice);
 t_room					***ft_init_matrice(int number_rooms);
-int						ft_find_room(t_room **tmp, char *room);
+void					ft_find_room(t_room **tmp, char *room);
 
 /*
 **	li_09c Matrice Tools

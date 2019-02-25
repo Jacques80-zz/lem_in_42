@@ -76,7 +76,7 @@ t_room			*ft_init_end(t_all *elem)
 	return (tmp);
 }
 
-int				ft_find_room(t_room **tmp, char *room)
+void			ft_find_room(t_room **tmp, char *room)
 {
 	while (*tmp)
 	{
@@ -84,5 +84,4 @@ int				ft_find_room(t_room **tmp, char *room)
 			break ;
 		(*tmp) = (*tmp)->next;
 	}
-	return (1);
 }

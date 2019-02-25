@@ -44,6 +44,7 @@ void	remove_ant(t_ant **ant)
 void	move_ant(t_ant **ptr_ant)
 {
 	t_ant		*ant;
+	static int	i = 0;
 
 	ant = *ptr_ant;
 	while (ant)
@@ -53,7 +54,10 @@ void	move_ant(t_ant **ptr_ant)
 		ant->next ? ft_putchar(' ') : ft_putchar('\n');
 		ant = ant->next;
 	}
+	i++;
 	remove_ant(ptr_ant);
+	if (!(*ptr_ant))
+		ft_printf("nombre de tours = %d\n", i);
 }
 
 void	ft_dispatch_short(t_all elem, t_path *path)

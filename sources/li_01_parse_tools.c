@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   li_01_parse_tools.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fallouch <fallouch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jdouniol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 05:30:46 by jdouniol          #+#    #+#             */
-/*   Updated: 2019/02/25 18:18:16 by fallouch         ###   ########.fr       */
+/*   Updated: 2019/02/18 05:30:49 by jdouniol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,14 +122,14 @@ int			ft_get_instructions(t_all *elem, char *line)
 		return (ERROR);
 	else if (i == 0)
 		return (ft_check_nb_ants(elem, line, &i));
-	else if (ft_strcmp(line, "##start") == 0)
+	else if (ft_strcmp(line, "##start\0") == 0)
 	{
 		if (elem->start_id != -1 || elem->next_is_start || elem->next_is_end)
 			return (ERROR);
 		elem->next_is_start = 1;
 		return (SUCCESS);
 	}
-	else if (ft_strcmp(line, "##end") == 0)
+	else if (ft_strcmp(line, "##end\0") == 0)
 	{
 		if (elem->end_id != -1 || elem->next_is_start || elem->next_is_end)
 			return (ERROR);

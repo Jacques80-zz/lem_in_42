@@ -1,4 +1,4 @@
-NAME 		= lem-in
+NAME = lem-in
 
 LEM_IN		=	lem-in
 

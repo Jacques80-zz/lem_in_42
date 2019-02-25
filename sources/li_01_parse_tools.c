@@ -95,9 +95,9 @@ int			ft_one_line_tube_or_room(t_all *elem, char *line)
 	int		ret;
 
 	i = 0;
-	if (ft_strchr(line, '-') != NULL)
+	if (ft_strchr(line, '-') != NULL && ft_multi_dash(line) == 1)
 		return (ft_tube(elem, line));
-	if (!(tab = ft_strsplit(line, ' ')))
+	if (!(tab = ft_strsplit(line, ' ')) && ft_strchr(line, '-') == NULL)
 		return (ERROR);
 	while (tab[++i])
 		;

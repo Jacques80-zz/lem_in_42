@@ -170,6 +170,7 @@ void					ft_error(int nb);
 void					ft_free_path(t_lst *lst);
 int						ft_free_tube(char **tab_tube, int i);
 void					free_bfs(t_files *tmp);
+int        				ft_multi_dash(char * line);
 
 /*
 **	li_09b Search and Init Tools

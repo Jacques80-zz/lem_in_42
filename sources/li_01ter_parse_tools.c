@@ -3,10 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   li_01ter_parse_tools.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fallouch <fallouch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jdouniol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 05:30:57 by jdouniol          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2019/02/25 20:16:18 by fallouch         ###   ########.fr       */
+=======
+/*   Updated: 2019/02/18 05:31:02 by jdouniol         ###   ########.fr       */
+>>>>>>> cab00e1714f97a81c710d8e459a16d3fd0109542
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +58,13 @@ int				ft_read(t_all *elem)
 {
 	int		i;
 	char	*line;
+	int		j;
 
+	j = 0;
 	ft_init_elem(elem);
 	i = GNL_LINE_READ;
 	line = NULL;
-	while (i == GNL_LINE_READ)
+	while (i == GNL_LINE_READ && ++j)
 	{
 		line = NULL;
 		if ((i = get_next_line(STDIN_FILENO, &line)) == GNL_ERROR)

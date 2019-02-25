@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   li_01bis_parse_tools.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fallouch <fallouch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jdouniol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 05:30:57 by jdouniol          #+#    #+#             */
-/*   Updated: 2019/02/25 18:32:02 by fallouch         ###   ########.fr       */
+/*   Updated: 2019/02/18 05:31:02 by jdouniol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,8 @@ int		ft_tube(t_all *elem, char *line)
 		return (ft_free_tube(tab_tube, i));
 	tmp = elem->room;
 	cur = elem->room;
-	ft_find_room(&tmp, tab_tube[0]) && ft_find_room(&cur, tab_tube[1]);
-	if (tmp == cur)
-		return (ERROR);
+	ft_find_room(&tmp, tab_tube[0]);
+	ft_find_room(&cur, tab_tube[1]);
 	if (ft_tube_aux(elem, &tmp, &cur) == ERROR)
 		return (ft_error_tube(&tab_tube));
 	i = -1;
@@ -116,9 +115,9 @@ int		ft_check_nb(char *s, int *nb)
 
 int		ft_check_nb_ants(t_all *elem, char *str, int *i)
 {
-	if (!ft_strncmp(str, "##start\n", 8))
+	if (!ft_strcmp(str, "##start\0"))
 		return (ERROR);
-	if (!ft_strncmp(str, "##end\n", 6))
+	if (!ft_strcmp(str, "##end\0"))
 		return (ERROR);
 	if (str[0] == '#')
 		return (SUCCESS);

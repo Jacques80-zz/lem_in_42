@@ -78,7 +78,8 @@ void	ft_dispatch(t_all elem, t_tab_path *tab)
 	int			ret;
 
 	ant = NULL;
-	if (path_size(elem.shortest_path) - 2 > elem.number_ants)
+	if (path_size(elem.shortest_path) - 2 > elem.number_ants
+		&& path_size(elem.shortest_path) < path_size(tab->path))
 		return (ft_dispatch_short(elem, elem.shortest_path));
 	while (elem.number_ants)
 	{

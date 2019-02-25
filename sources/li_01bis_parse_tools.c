@@ -6,7 +6,7 @@
 /*   By: fallouch <fallouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 05:30:57 by jdouniol          #+#    #+#             */
-/*   Updated: 2019/02/25 18:18:48 by fallouch         ###   ########.fr       */
+/*   Updated: 2019/02/25 18:32:02 by fallouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int		ft_tube(t_all *elem, char *line)
 	while (tab_tube[++i])
 		;
 	if (i != 2 || !ft_strcmp(tab_tube[0], tab_tube[1]))
-		return (ERROR);
+		return (ft_free_tube(tab_tube, i));
 	tmp = elem->room;
 	cur = elem->room;
 	ft_find_room(&tmp, tab_tube[0]) && ft_find_room(&cur, tab_tube[1]);

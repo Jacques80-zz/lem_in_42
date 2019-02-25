@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   li_09bis_free_and_error.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fallouch <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fallouch <fallouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 21:22:53 by fallouch          #+#    #+#             */
-/*   Updated: 2019/02/21 21:23:01 by fallouch         ###   ########.fr       */
+/*   Updated: 2019/02/25 18:33:05 by fallouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,12 @@ int		ft_free_them(size_t n, ...)
 	}
 	va_end(ap);
 	return (1);
+}
+
+int		ft_free_tube(char **tab_tube, int i)
+{
+	while (i)
+		free(tab_tube[--i]);
+	free(tab_tube);
+	return (ERROR);
 }

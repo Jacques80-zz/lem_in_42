@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lem_in.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdouniol <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fallouch <fallouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 06:16:09 by jdouniol          #+#    #+#             */
-/*   Updated: 2019/02/18 06:16:12 by jdouniol         ###   ########.fr       */
+/*   Updated: 2019/02/25 18:33:51 by fallouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,6 +167,7 @@ int						ft_error_tube(char ***tab_tube);
 void					ft_error(int nb);
 void					ft_free_path(t_lst *lst);
 void					free_bfs(t_files *tmp);
+int						ft_free_tube(char **tab_tube, int i);
 
 /*
 **	li_09b Search and Init Tools

@@ -42,11 +42,11 @@ static int			ft_len_int(long long n)
 
 char				*ft_itoa_ll(long long n)
 {
-	int			sign;
-	ULL			x;
-	long long	len;
-	char		*res;
-	int			y;
+	int					sign;
+	unsigned long long	x;
+	long long			len;
+	char				*res;
+	int					y;
 
 	y = 0;
 	sign = (n < 0) ? 1 : 0;

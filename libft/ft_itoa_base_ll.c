@@ -20,7 +20,7 @@
 **	renvoie NULL. Toutes les bases de 2 à 16 sont valides
 */
 
-static int	ft_pow(ULL v, unsigned int base)
+static int	ft_pow(unsigned long long v, unsigned int base)
 {
 	if (v == 0)
 		return (0);
@@ -28,11 +28,11 @@ static int	ft_pow(ULL v, unsigned int base)
 		return (1 + ft_pow(v / base, base));
 }
 
-char		*ft_itoa_base_ll(ULL value, unsigned int base)
+char		*ft_itoa_base_ll(unsigned long long value, unsigned int base)
 {
-	char	*res;
-	ULL		p;
-	int		i;
+	char					*res;
+	unsigned long long		p;
+	int						i;
 
 	i = ft_pow(value, base);
 	p = value;

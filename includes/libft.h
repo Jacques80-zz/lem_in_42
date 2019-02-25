@@ -26,8 +26,6 @@
 # define GNL_ERROR -1
 # define MAX_INT_POS 2147483647
 # define MAX_INT_NEG -2147483648
-# define ULL unsigned long long
-# define UL unsigned long
 
 typedef unsigned char	t_byte;
 typedef struct			s_list
@@ -55,7 +53,7 @@ int						ft_tolower(int c);
 int						ft_toupper(int c);
 int						ft_atoi(const char *str);
 int						ft_atoi_base(const char *str, unsigned int from);
-UL						ft_atoi_base_ll(const char *str, unsigned int from);
+unsigned long			ft_atoi_base_ll(const char *str, unsigned int from);
 char					*ft_strstr(const char *src, const char *to_find);
 int						ft_isalpha(int c);
 int						ft_isdigit(int c);
@@ -107,7 +105,8 @@ char					*ft_strdupifexist(const char *str);
 char					*ft_itoa(int i);
 char					*ft_itoa_ll(long long n);
 char					*ft_itoa_base(unsigned int value, unsigned int base);
-char					*ft_itoa_base_ll(ULL value, unsigned int base);
+char					*ft_itoa_base_ll(unsigned long long value,
+							unsigned int base);
 t_list					*ft_lstnew(void const *content, size_t content_size);
 void					ft_lstdelone(t_list **alst, void (*del)(void *,
 							size_t));

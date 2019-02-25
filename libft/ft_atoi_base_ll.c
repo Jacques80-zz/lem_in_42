@@ -12,11 +12,11 @@
 
 #include "../includes/libft.h"
 
-UL	ft_atoi_base_ll(const char *val, unsigned int from)
+unsigned long	ft_atoi_base_ll(const char *val, unsigned int from)
 {
-	UL	res;
-	int	i;
-	UL	exp;
+	unsigned long	res;
+	int				i;
+	unsigned long	exp;
 
 	if (!val)
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: fallouch <fallouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 05:32:29 by jdouniol          #+#    #+#             */
-/*   Updated: 2019/02/28 17:46:46 by fallouch         ###   ########.fr       */
+/*   Updated: 2019/02/25 20:26:13 by fallouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ int		ft_error_tube(char ***tab_tube)
 
 void	ft_error(int nb)
 {
-	if (nb == 42)
-		exit(1);
 	if (nb)
 	{
 		write(STDERR_FILENO, "ERROR\n", 6);
@@ -54,11 +52,7 @@ void	free_bfs(t_files *tmp)
 	free(tmp);
 }
 
-<<<<<<< HEAD
 int		ft_multi_dash(char *line)
-=======
-int		ft_multi_dash(char * line)
->>>>>>> 837f308956c6b4a1b4e6f5c67323fdaf0c0ff64d
 {
 	int i;
 	int count;

@@ -34,16 +34,21 @@ int		ft_bonus_ants(char *av, t_all *elem)
 	int			new_nb_ants;
 	long long	tmp;
 
-	if (ft_str_is_number(av))
+	if (av)
 	{
-		tmp = ft_atoll(av);
-		if (tmp >= 1 && tmp < INT_MAX)
+		if (ft_str_is_number(av))
 		{
-			new_nb_ants = ft_atoi(av);
-			elem->number_ants = new_nb_ants;
+			tmp = ft_atoll(av);
+			if (tmp >= 1 && tmp < INT_MAX)
+			{
+				new_nb_ants = ft_atoi(av);
+				elem->number_ants = new_nb_ants;
+			}
+			else
+				ft_bonus_usage(av, ERROR_IS_NOT_A_POSITIVE_INTEGER);
 		}
 		else
-			ft_bonus_usage(av, ERROR_IS_NOT_A_POSITIVE_INTEGER);
+			ft_bonus_usage(av, ERROR_ANT_IS_NOT_A_NUMBER);
 	}
 	else
 		ft_bonus_usage(av, ERROR_ANT_IS_NOT_A_NUMBER);
@@ -61,19 +66,22 @@ int		ft_bonus_color(char *av, t_all *elem)
 	int			nb_ant_to_color;
 	long long	tmp;
 
-	if (ft_str_is_number(av))
+	if (av)
 	{
-		tmp = ft_atoll(av);
-		if (tmp >= 1 && tmp <= elem->number_ants)
+		if (ft_str_is_number(av))
 		{
-			nb_ant_to_color = ft_atoi(av);
-			elem->nb_ant_to_color = nb_ant_to_color;
+			tmp = ft_atoll(av);
+			if (tmp >= 1 && tmp <= elem->number_ants)
+			{
+				nb_ant_to_color = ft_atoi(av);
+				elem->nb_ant_to_color = nb_ant_to_color;
+			}
+			else
+				ft_bonus_usage(av, ERROR_IS_NOT_A_VALID_LEM);
 		}
 		else
-			ft_bonus_usage(av, ERROR_IS_NOT_A_VALID_LEM);
+			ft_bonus_usage(av, ERROR_IS_NOT_A_POSITIVE_INTEGER);
 	}
-	else
-		ft_bonus_usage(av, ERROR_IS_NOT_A_POSITIVE_INTEGER);
 	return (1);
 }
 

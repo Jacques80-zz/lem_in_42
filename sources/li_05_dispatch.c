@@ -6,7 +6,7 @@
 /*   By: fallouch <fallouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 05:32:01 by jdouniol          #+#    #+#             */
-/*   Updated: 2019/02/25 20:22:53 by fallouch         ###   ########.fr       */
+/*   Updated: 2019/02/28 16:59:44 by fallouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	remove_ant(t_ant **ant)
 	}
 }
 
+<<<<<<< HEAD
 void	ft_color_ant(t_all *elem, t_ant *ant)
 {
 	while (ant)
@@ -64,6 +65,9 @@ void	ft_color_ant(t_all *elem, t_ant *ant)
 }
 
 void	move_ant_bis(t_ant **ptr_ant, t_all *elem)
+=======
+void	move_ant(t_ant **ptr_ant, t_bonus bonus)
+>>>>>>> 837f308956c6b4a1b4e6f5c67323fdaf0c0ff64d
 {
 	t_ant		*ant;
 	static int	nb_line = 0;
@@ -73,6 +77,7 @@ void	move_ant_bis(t_ant **ptr_ant, t_all *elem)
 		ft_color_ant(elem, ant);
 	else
 	{
+<<<<<<< HEAD
 		while (ant)
 		{
 			ant->path = ant->path->next;
@@ -84,6 +89,23 @@ void	move_ant_bis(t_ant **ptr_ant, t_all *elem)
 	nb_line++;
 	remove_ant(ptr_ant);
 	if (elem->show_line && !*ptr_ant)
+=======
+		ant->path = ant->path->next;
+		if (ant->nb != bonus.tracked_ant)
+			ft_printf("L%d-%s", ant->nb, ant->path->room->name_room);
+		else
+		{
+			ft_printf("\033[1;31m");
+			ft_printf("L%d-%s", ant->nb, ant->path->room->name_room);
+			ft_printf("\033[0m");
+		}
+		ant->next ? ft_putchar(' ') : ft_putchar('\n');
+		ant = ant->next;
+	}
+	nb_line++;
+	remove_ant(ptr_ant);
+	if (!*ptr_ant && bonus.print_lines)
+>>>>>>> 837f308956c6b4a1b4e6f5c67323fdaf0c0ff64d
 		ft_printf("number lines = %d\n", nb_line);
 }
 
@@ -95,10 +117,17 @@ void	ft_dispatch_short(t_all elem, t_path *path)
 	while (elem.number_ants)
 	{
 		add_ant(&ant, elem.number_ants--, path);
+<<<<<<< HEAD
 		move_ant_bis(&ant, &elem);
 	}
 	while (ant)
 		move_ant_bis(&ant, &elem);
+=======
+		move_ant(&ant, elem.bonus);
+	}
+	while (ant)
+		move_ant(&ant, elem.bonus);
+>>>>>>> 837f308956c6b4a1b4e6f5c67323fdaf0c0ff64d
 }
 
 void	ft_dispatch(t_all elem, t_tab_path *tab)
@@ -124,8 +153,15 @@ void	ft_dispatch(t_all elem, t_tab_path *tab)
 			tmp = tmp->next;
 			nb++;
 		}
+<<<<<<< HEAD
 		move_ant_bis(&ant, &elem);
 	}
 	while (ant)
 		move_ant_bis(&ant, &elem);
+=======
+		move_ant(&ant, elem.bonus);
+	}
+	while (ant)
+		move_ant(&ant, elem.bonus);
+>>>>>>> 837f308956c6b4a1b4e6f5c67323fdaf0c0ff64d
 }

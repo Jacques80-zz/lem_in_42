@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lem_in.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdouniol <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fallouch <fallouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 06:16:09 by jdouniol          #+#    #+#             */
-/*   Updated: 2019/02/18 06:16:12 by jdouniol         ###   ########.fr       */
+/*   Updated: 2019/02/28 17:05:11 by fallouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,12 @@ typedef struct			s_ant
 	struct s_ant		*next;
 }						t_ant;
 
+typedef struct			s_bonus
+{
+	int					tracked_ant;
+	int					print_lines;
+}						t_bonus;
+
 typedef struct			s_all
 {
 	int					number_ants;
@@ -99,8 +105,12 @@ typedef struct			s_all
 	t_path				*shortest_path;
 	int					bfs;
 	int					line_pb;
+<<<<<<< HEAD
 	int					nb_ant_to_color;
 	int					show_line;
+=======
+	t_bonus				bonus;
+>>>>>>> 837f308956c6b4a1b4e6f5c67323fdaf0c0ff64d
 }						t_all;
 
 typedef struct			s_lst
@@ -236,9 +246,16 @@ void					add_ant(t_ant **ant, int nb, t_path *path);
 void					ft_print_infos(t_all *elem);
 
 /*
+<<<<<<< HEAD
 **	li_09e_bonus
 */
 
 void					ft_bonus(int ac, char **av, t_all *elem);
+=======
+**	ft_bonus
+*/
+
+int        				ft_bonus(t_bonus *bonus, int ac, char **av);
+>>>>>>> 837f308956c6b4a1b4e6f5c67323fdaf0c0ff64d
 
 #endif

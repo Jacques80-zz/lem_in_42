@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   li_00_lem_in.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdouniol <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fallouch <fallouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 05:30:15 by jdouniol          #+#    #+#             */
-/*   Updated: 2019/02/18 05:30:18 by jdouniol         ###   ########.fr       */
+/*   Updated: 2019/02/28 17:27:27 by fallouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,12 @@ int			main(int ac, char **av)
 	elem.matrice_flow, ft_init_start(&elem));
 	if (!elem.shortest_path)
 		ft_error(1);
+<<<<<<< HEAD
 	ft_bonus(ac, av, &elem);
+=======
+	if (!ft_bonus(&(elem.bonus), ac, av))
+		ft_error(42);
+>>>>>>> 837f308956c6b4a1b4e6f5c67323fdaf0c0ff64d
 	ft_print_infos(&elem);
 	ft_dispatch(elem, tab);
 	ft_free(&elem, tab);

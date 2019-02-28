@@ -41,6 +41,8 @@ void			ft_init_elem(t_all *elem)
 	elem->shortest_path = NULL;
 	elem->start_id = -1;
 	elem->end_id = -1;
+	elem->nb_ant_to_color = -1;
+	elem->show_line = 0;
 	elem->bfs = 0;
 }
 

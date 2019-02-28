@@ -41,22 +41,49 @@ void	remove_ant(t_ant **ant)
 	}
 }
 
-void	move_ant(t_ant **ptr_ant)
+void	ft_color_ant(t_all *elem, t_ant *ant)
+{
+	while (ant)
+	{
+		ant->path = ant->path->next;
+		if (ant->nb == elem->nb_ant_to_color)
+		{
+			ft_printf("\033[1;31m");
+			ft_printf("L%d-%s", ant->nb, ant->path->room->name_room);
+			ft_printf("\033[0m");
+			ant->next ? ft_putchar(' ') : ft_putchar('\n');
+			ant = ant->next;
+		}
+		else
+		{
+			ft_printf("L%d-%s", ant->nb, ant->path->room->name_room);
+			ant->next ? ft_putchar(' ') : ft_putchar('\n');
+			ant = ant->next;
+		}
+	}
+}
+
+void	move_ant_bis(t_ant **ptr_ant, t_all *elem)
 {
 	t_ant		*ant;
 	static int	nb_line = 0;
 
 	ant = *ptr_ant;
-	while (ant)
+	if (elem->nb_ant_to_color >= 0)
+		ft_color_ant(elem, ant);
+	else
 	{
-		ant->path = ant->path->next;
-		ft_printf("L%d-%s", ant->nb, ant->path->room->name_room);
-		ant->next ? ft_putchar(' ') : ft_putchar('\n');
-		ant = ant->next;
+		while (ant)
+		{
+			ant->path = ant->path->next;
+			ft_printf("L%d-%s", ant->nb, ant->path->room->name_room);
+			ant->next ? ft_putchar(' ') : ft_putchar('\n');
+			ant = ant->next;
+		}
 	}
 	nb_line++;
 	remove_ant(ptr_ant);
-	if (!*ptr_ant)
+	if (elem->show_line && !*ptr_ant)
 		ft_printf("number lines = %d\n", nb_line);
 }
 
@@ -68,10 +95,10 @@ void	ft_dispatch_short(t_all elem, t_path *path)
 	while (elem.number_ants)
 	{
 		add_ant(&ant, elem.number_ants--, path);
-		move_ant(&ant);
+		move_ant_bis(&ant, &elem);
 	}
 	while (ant)
-		move_ant(&ant);
+		move_ant_bis(&ant, &elem);
 }
 
 void	ft_dispatch(t_all elem, t_tab_path *tab)
@@ -97,8 +124,8 @@ void	ft_dispatch(t_all elem, t_tab_path *tab)
 			tmp = tmp->next;
 			nb++;
 		}
-		move_ant(&ant);
+		move_ant_bis(&ant, &elem);
 	}
 	while (ant)
-		move_ant(&ant);
+		move_ant_bis(&ant, &elem);
 }

@@ -13,10 +13,15 @@
 #ifndef LEM_IN_H
 # define LEM_IN_H
 
-# define SUCCESS		0
-# define ERROR			1
-# define FAIL			2
-# define DEBUG_MODE		1
+# define SUCCESS							0
+# define ERROR								1
+# define FAIL								2
+# define DEBUG_MODE							1
+# define NOT_A_VALID_BONUS 					1
+# define ERROR_ANT_IS_NOT_A_NUMBER 			2
+# define ERROR_IS_NOT_A_POSITIVE_INTEGER 	3
+# define ERROR_IS_NOT_A_VALID_FILE 			4
+# define ERROR_IS_NOT_A_VALID_LEM 			5
 
 # include "libft.h"
 
@@ -94,6 +99,8 @@ typedef struct			s_all
 	t_path				*shortest_path;
 	int					bfs;
 	int					line_pb;
+	int					nb_ant_to_color;
+	int					show_line;
 }						t_all;
 
 typedef struct			s_lst
@@ -170,7 +177,7 @@ void					ft_error(int nb);
 void					ft_free_path(t_lst *lst);
 int						ft_free_tube(char **tab_tube, int i);
 void					free_bfs(t_files *tmp);
-int        				ft_multi_dash(char * line);
+int						ft_multi_dash(char *line);
 
 /*
 **	li_09b Search and Init Tools
@@ -227,5 +234,11 @@ t_path					*return_bfs(t_files *file, t_files *tmp);
 int						ft_nb_path(t_all elem, t_tab_path *tab, int i, int c);
 void					add_ant(t_ant **ant, int nb, t_path *path);
 void					ft_print_infos(t_all *elem);
+
+/*
+**	li_09e_bonus
+*/
+
+void					ft_bonus(int ac, char **av, t_all *elem);
 
 #endif

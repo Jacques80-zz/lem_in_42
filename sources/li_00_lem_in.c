@@ -30,7 +30,7 @@ void		ft_free(t_all *elem, t_tab_path *tab)
 	free_room(elem->room);
 }
 
-int			main(void)
+int			main(int ac, char **av)
 {
 	t_all		elem;
 	t_tab_path	*tab;
@@ -48,6 +48,7 @@ int			main(void)
 	elem.matrice_flow, ft_init_start(&elem));
 	if (!elem.shortest_path)
 		ft_error(1);
+	ft_bonus(ac, av, &elem);
 	ft_print_infos(&elem);
 	ft_dispatch(elem, tab);
 	ft_free(&elem, tab);

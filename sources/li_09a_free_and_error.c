@@ -52,28 +52,15 @@ void	free_bfs(t_files *tmp)
 	free(tmp);
 }
 
-int        ft_multi_dash(char * line)
+int		ft_multi_dash(char *line)
 {
-    int i;
-    int count;
+	int i;
+	int count;
 
-    i = 0;
-    count = 0;
-    while (line[i++])
-        if (line[i] == '-')
-            count++;
-   return (count);
+	i = 0;
+	count = 0;
+	while (line[i++])
+		if (line[i] == '-')
+			count++;
+	return (count);
 }
-
-/*
-void	ft_error_debug(int nb, t_all *elem)
-{
-	if (elem->line_pb && DEBUG_MODE)
-		ft_printf("Probleme a la ligne %d", elem->line_pb);
-	if (nb)
-	{
-		write(STDERR_FILENO, "ERROR\n", 6);
-		exit(1);
-	}
-}
-*/

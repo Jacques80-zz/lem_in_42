@@ -144,5 +144,6 @@ int						ft_isint(long long nbr);
 char					*ft_to_lower(const char *str);
 t_list					*ft_lstget(t_list *lst, int n);
 int						ft_min(int a, int b);
+int						ft_str_is_number(char *str);
 
 #endif

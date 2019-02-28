@@ -46,11 +46,10 @@ _LSRC 		=	ft_putchar.c ft_putstr.c ft_memset.c ft_bzero.c ft_memcpy.c \
 	  			ft_strtoupper.c get_next_line.c ft_split_whitespaces.c \
 	  			ft_islower.c ft_isspace.c ft_istrim.c ft_isupper.c \
 	  			ft_atol.c ft_isint.c ft_atoll.c ft_to_lower.c ft_lstget.c \
-	  			ft_realloc.c ft_min.c \
+	  			ft_realloc.c ft_min.c ft_str_is_number.c \
 
 HEADER		= ../includes/libft.h ../includes/ft_printf.h
 PRINTF_DIR	= pf_sources
-#LIBFT_DIR	= libft
 SRC			= $(addprefix $(PRINTF_DIR)/, $(_SRC))
 LSRC		= $(addprefix , $(_LSRC))
 BIN 		= $(SRC:.c=.o)
@@ -58,8 +57,6 @@ LBIN		= $(LSRC:.c=.o)
 BIN			+= $(LBIN)
 RM			= /bin/rm
 
-#	all : généralement la première du fichier, elle regroupe dans ces dépendances 
-# l'ensemble des exécutables à produire.
 all : $(NAME)
 
 $(NAME) : $(BIN) $(HEADER)
@@ -71,7 +68,7 @@ $(NAME) : $(BIN) $(HEADER)
 	@printf "\033[1:92mCompiling $(NAME)\033[0m %-31s\033[32m[$<]\033[0m\n" ""
 	@$(CC) $(FLAGS) -c $< -o $@ -I ../includes
 	@printf "\033[A\033[2K"
-# clean : elle permet de supprimer tout les fichiers intermédiaires.
+
 clean :
 	@rm -f $(BIN)
 	@printf "\033[1:32mCleaning object files -> \033[91m$(NAME)\033[0m\033[1:32m:\033[0m%-16s\033[32m[✔]\033[0m\n"

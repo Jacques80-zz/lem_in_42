@@ -6,7 +6,7 @@
 /*   By: fallouch <fallouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 05:30:57 by jdouniol          #+#    #+#             */
-/*   Updated: 2019/02/25 20:27:00 by fallouch         ###   ########.fr       */
+/*   Updated: 2019/02/28 16:58:34 by fallouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void			ft_init_elem(t_all *elem)
 	elem->start_id = -1;
 	elem->end_id = -1;
 	elem->bfs = 0;
+	ft_bzero(&(elem->bonus), sizeof(t_bonus));
 }
 
 int				gnl_error(char *line)

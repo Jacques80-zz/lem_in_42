@@ -6,7 +6,7 @@
 /*   By: fallouch <fallouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 05:32:01 by jdouniol          #+#    #+#             */
-/*   Updated: 2019/02/25 20:22:53 by fallouch         ###   ########.fr       */
+/*   Updated: 2019/02/28 16:59:44 by fallouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	remove_ant(t_ant **ant)
 	}
 }
 
-void	move_ant(t_ant **ptr_ant)
+void	move_ant(t_ant **ptr_ant, t_bonus bonus)
 {
 	t_ant		*ant;
 	static int	nb_line = 0;
@@ -50,13 +50,20 @@ void	move_ant(t_ant **ptr_ant)
 	while (ant)
 	{
 		ant->path = ant->path->next;
-		ft_printf("L%d-%s", ant->nb, ant->path->room->name_room);
+		if (ant->nb != bonus.tracked_ant)
+			ft_printf("L%d-%s", ant->nb, ant->path->room->name_room);
+		else
+		{
+			ft_printf("\033[1;31m");
+			ft_printf("L%d-%s", ant->nb, ant->path->room->name_room);
+			ft_printf("\033[0m");
+		}
 		ant->next ? ft_putchar(' ') : ft_putchar('\n');
 		ant = ant->next;
 	}
 	nb_line++;
 	remove_ant(ptr_ant);
-	if (!*ptr_ant)
+	if (!*ptr_ant && bonus.print_lines)
 		ft_printf("number lines = %d\n", nb_line);
 }
 
@@ -68,10 +75,10 @@ void	ft_dispatch_short(t_all elem, t_path *path)
 	while (elem.number_ants)
 	{
 		add_ant(&ant, elem.number_ants--, path);
-		move_ant(&ant);
+		move_ant(&ant, elem.bonus);
 	}
 	while (ant)
-		move_ant(&ant);
+		move_ant(&ant, elem.bonus);
 }
 
 void	ft_dispatch(t_all elem, t_tab_path *tab)
@@ -97,8 +104,8 @@ void	ft_dispatch(t_all elem, t_tab_path *tab)
 			tmp = tmp->next;
 			nb++;
 		}
-		move_ant(&ant);
+		move_ant(&ant, elem.bonus);
 	}
 	while (ant)
-		move_ant(&ant);
+		move_ant(&ant, elem.bonus);
 }

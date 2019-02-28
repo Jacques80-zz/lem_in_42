@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lem_in.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdouniol <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fallouch <fallouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 06:16:09 by jdouniol          #+#    #+#             */
-/*   Updated: 2019/02/18 06:16:12 by jdouniol         ###   ########.fr       */
+/*   Updated: 2019/02/28 17:05:11 by fallouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,12 @@ typedef struct			s_ant
 	struct s_ant		*next;
 }						t_ant;
 
+typedef struct			s_bonus
+{
+	int					tracked_ant;
+	int					print_lines;
+}						t_bonus;
+
 typedef struct			s_all
 {
 	int					number_ants;
@@ -94,6 +100,7 @@ typedef struct			s_all
 	t_path				*shortest_path;
 	int					bfs;
 	int					line_pb;
+	t_bonus				bonus;
 }						t_all;
 
 typedef struct			s_lst
@@ -227,5 +234,11 @@ t_path					*return_bfs(t_files *file, t_files *tmp);
 int						ft_nb_path(t_all elem, t_tab_path *tab, int i, int c);
 void					add_ant(t_ant **ant, int nb, t_path *path);
 void					ft_print_infos(t_all *elem);
+
+/*
+**	ft_bonus
+*/
+
+int        				ft_bonus(t_bonus *bonus, int ac, char **av);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   li_00_lem_in.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdouniol <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fallouch <fallouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 05:30:15 by jdouniol          #+#    #+#             */
-/*   Updated: 2019/02/18 05:30:18 by jdouniol         ###   ########.fr       */
+/*   Updated: 2019/02/28 17:27:27 by fallouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void		ft_free(t_all *elem, t_tab_path *tab)
 	free_room(elem->room);
 }
 
-int			main(void)
+int			main(int ac, char **av)
 {
 	t_all		elem;
 	t_tab_path	*tab;
@@ -48,6 +48,8 @@ int			main(void)
 	elem.matrice_flow, ft_init_start(&elem));
 	if (!elem.shortest_path)
 		ft_error(1);
+	if (!ft_bonus(&(elem.bonus), ac, av))
+		ft_error(42);
 	ft_print_infos(&elem);
 	ft_dispatch(elem, tab);
 	ft_free(&elem, tab);

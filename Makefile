@@ -17,7 +17,8 @@ _LI_SRCS	= 	li_00_lem_in.c \
 			  	li_09bis_free_and_error.c \
 			  	li_09b_search_and_init_tools.c \
 			  	li_09c_matrice_tools.c \
-			  	li_09d_path_tools.c 
+			  	li_09d_path_tools.c \
+				ft_bonus.c
 			
 _LIBFT		=	libft.a
 

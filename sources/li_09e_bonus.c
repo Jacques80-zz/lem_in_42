@@ -15,8 +15,11 @@
 void	ft_bonus_usage(char *av, int error)
 {
 	if (error == NOT_A_VALID_BONUS)
-		ft_printf("ERROR USAGE, please put a valid bonus -a & uint or/and -l\
-			& nothing or/and -m & nothing & uint<=nb_lem [%s]\n", av);
+	{
+		ft_printf("ERROR USAGE, please put a valid bonus -a & uint or/and -l");
+		ft_printf("& none or/and -m (inf at 30) & none & uint<=nb_lem");
+		ft_printf(" [%s]\n", av);
+	}
 	if (error == ERROR_ANT_IS_NOT_A_NUMBER)
 		ft_printf("ERROR USAGE, please put an unsigned integer [%s]\n", av);
 	if (error == ERROR_IS_NOT_A_POSITIVE_INTEGER)
@@ -98,7 +101,7 @@ void	ft_bonus(int ac, char **av, t_all *elem)
 			ft_bonus_line(elem);
 		else if (ft_strcmp(av[i], "-c") == 0)
 			i++ && ft_bonus_color(av[i], elem);
-		else if (ft_strcmp(av[i], "-m") == 0)
+		else if (ft_strcmp(av[i], "-m") == 0 && elem->number_rooms < 30)
 			ft_print_matrice(elem);
 		else
 		{

@@ -6,7 +6,7 @@
 /*   By: fallouch <fallouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 05:30:57 by jdouniol          #+#    #+#             */
-/*   Updated: 2019/02/25 20:27:00 by fallouch         ###   ########.fr       */
+/*   Updated: 2019/03/01 15:59:54 by jdouniol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ int				ft_read(t_all *elem)
 		}
 		if (ft_get_instructions(elem, line) == ERROR)
 		{
-			ft_printf("line_pb = %s\n", line);
 			free(line);
 			return (ERROR);
 		}

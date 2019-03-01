@@ -6,7 +6,7 @@
 /*   By: jdouniol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/28 18:31:18 by jdouniol          #+#    #+#             */
-/*   Updated: 2019/02/28 18:31:20 by jdouniol         ###   ########.fr       */
+/*   Updated: 2019/03/01 16:02:40 by jdouniol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,11 +101,7 @@ void	ft_bonus(int ac, char **av, t_all *elem)
 			ft_bonus_line(elem);
 		else if (ft_strcmp(av[i], "-c") == 0)
 			i++ && ft_bonus_color(av[i], elem);
-<<<<<<< HEAD
-		else if (ft_strcmp(av[i], "-m") == 0 && elem->number_rooms < 30)
-=======
 		else if (ft_strcmp(av[i], "-m") == 0 && elem->number_rooms < 20)
->>>>>>> 6b0c7bbca3d338833c4d2f1391087dbaeb8879bb
 			ft_print_matrice(elem);
 		else
 		{

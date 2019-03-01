@@ -101,7 +101,11 @@ void	ft_bonus(int ac, char **av, t_all *elem)
 			ft_bonus_line(elem);
 		else if (ft_strcmp(av[i], "-c") == 0)
 			i++ && ft_bonus_color(av[i], elem);
+<<<<<<< HEAD
 		else if (ft_strcmp(av[i], "-m") == 0 && elem->number_rooms < 30)
+=======
+		else if (ft_strcmp(av[i], "-m") == 0 && elem->number_rooms < 20)
+>>>>>>> 6b0c7bbca3d338833c4d2f1391087dbaeb8879bb
 			ft_print_matrice(elem);
 		else
 		{

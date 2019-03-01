@@ -72,6 +72,7 @@ int				ft_read(t_all *elem)
 		}
 		if (ft_get_instructions(elem, line) == ERROR)
 		{
+			ft_printf("line_pb = %s\n", line);
 			free(line);
 			return (ERROR);
 		}

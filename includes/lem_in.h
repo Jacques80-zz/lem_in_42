@@ -117,10 +117,6 @@ typedef struct			s_files
 }						t_files;
 
 /*
-**	li_00 initialisation
-*/
-
-/*
 **	li_01 Parse Tools
 */
 
@@ -162,6 +158,31 @@ void					free_file(t_files *file);
 
 t_tab_path				*edmond_karp(t_all *elem, t_room ***matrice,
 							int **matrice_flow, t_room *start);
+
+/*
+**	li_05 dipatch
+*/
+
+void					ft_dispatch(t_all elem, t_tab_path *tab);
+void					ft_print_infos(t_all *elem);
+
+/*
+**	li_05bis dispatch and algo tools
+*/
+
+t_path					*return_bfs(t_files *file, t_files *tmp);
+int						ft_nb_path(t_all elem, t_tab_path *tab, int i, int c);
+void					add_ant(t_ant **ant, int nb, t_path *path);
+void					ft_print_infos(t_all *elem);
+
+/*
+**	li_06_tab_path_tools
+*/
+
+void					free_tab_path(t_tab_path *tab);
+void					free_path(t_path *path);
+t_tab_path				*remove_bad_path(t_tab_path *tab);
+int						tab_size(t_tab_path *tab);
 
 /*
 **	li_09a Free and error
@@ -211,34 +232,10 @@ int						is_not_in_path(t_path *path, t_room *room);
 int						path_size(t_path *path);
 
 /*
-**	li_06_tab_path_tools
-*/
-
-void					free_tab_path(t_tab_path *tab);
-void					free_path(t_path *path);
-t_tab_path				*remove_bad_path(t_tab_path *tab);
-int						tab_size(t_tab_path *tab);
-
-/*
-**	li_05 dipatch
-*/
-
-void					ft_dispatch(t_all elem, t_tab_path *tab);
-void					ft_print_infos(t_all *elem);
-
-/*
-**	li_05bis dispatch and algo tools
-*/
-
-t_path					*return_bfs(t_files *file, t_files *tmp);
-int						ft_nb_path(t_all elem, t_tab_path *tab, int i, int c);
-void					add_ant(t_ant **ant, int nb, t_path *path);
-void					ft_print_infos(t_all *elem);
-
-/*
 **	li_09e_bonus
 */
 
 void					ft_bonus(int ac, char **av, t_all *elem);
+void					ft_print_matrice(t_all *elem);
 
 #endif
